@@ -1,0 +1,15 @@
+---
+title: ""
+---
+
+## What's this?
+
+On this website I plan to share resources - links to papers, talks, blog posts - that I have found useful when trying to navigate the Trustworthy AI landscape. I hope it will serve others who are interested in the field. At the moment I am not planning to use this site to showcase any of my own research, which can be found on my [home page](www.paltmeyer.com).
+
+## Quarto
+
+This is a [Quarto](https://quarto.org) website that was built within just a few hours.
+
+> Quarto® is an open-source scientific and technical publishing system built on Pandoc. Quarto documents are authored using markdown, an easy to write plain text format.
+
+Quarto is among the latest advancements brought to us by RStudio. It promises to offer a publishing system that is largely language agnostic. Among other things it comes with native support for both Jupyter and Knitr. 

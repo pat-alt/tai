@@ -1,0 +1,29 @@
+project:
+  type: site
+  output-dir: docs
+
+site:
+  title: "Trustworthy AI"
+  navbar:
+    search: true
+    background: dark
+    foreground: success
+    left:
+      - href: index.qmd
+        text: Home
+      - href: literature.qmd
+        text: Literature
+    collapse: true
+  page-navigation: true
+  footer: Copyright 2021, [Patrick Altmeyer](www.paltmeyer.com)
+  repo-url: https://github.com/pat-alt/tai
+  repo-actions: [issue]
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
+
+
+
