@@ -81,21 +81,21 @@
 <li><a href="#counterfactual-explanations-ce" class="nav-link" data-scroll-target="#counterfactual-explanations-ce">Counterfactual Explanations (CE)</a></li>
 </ul></li>
 </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/edit/main/private/explainability.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav></div>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-8 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
 <main>
 
-<section id="explainability" class="level1">
-<h1>Explainability</h1>
-<section id="surrogate-explainers" class="level2">
-<h2 class="anchored" data-anchor-id="surrogate-explainers">Surrogate Explainers</h2>
+<section id="explainability" class="level2">
+<h2 class="anchored" data-anchor-id="explainability">Explainability</h2>
+<section id="surrogate-explainers" class="level3">
+<h3 class="anchored" data-anchor-id="surrogate-explainers">Surrogate Explainers</h3>
 <ul>
 <li><span class="citation" data-cites="ribeiro2016should">@ribeiro2016should</span> propose Local Interpretable Model-Agnostic Explanations (LIME): the approach involves generating local perturbations in the input space, deriving predictions from the original classifier and than fitting a white box model (e.g.&nbsp;linear regression) on this synthetic data set.</li>
 <li><span class="citation" data-cites="lundberg2017unified">@lundberg2017unified</span> propose SHAP as a provably unified approach to additive feature attribution methods (including LIME) with certain desiderata. Contrary to LIME, this approach involves permuting through the feature space and checking how different features impact model predictions when they are included in the permutations.</li>
 </ul>
 </section>
-<section id="criticism-surrogate-explainers" class="level2">
-<h2 class="anchored" data-anchor-id="criticism-surrogate-explainers">Criticism (Surrogate Explainers)</h2>
+<section id="criticism-surrogate-explainers" class="level3">
+<h3 class="anchored" data-anchor-id="criticism-surrogate-explainers">Criticism (Surrogate Explainers)</h3>
 <blockquote class="blockquote">
 <p>“Explanatory models by definition do not produce 100% reliable explanations, because they are approximations. This means explanations can’t be fully trusted, and so neither can the original model.” – <a href="https://www.causalens.com/blog/xai-doesnt-explain/">causaLens</a>, 2021</p>
 </blockquote>
@@ -115,8 +115,8 @@
 </ul>
 </div>
 </section>
-<section id="counterfactual-explanations-ce" class="level2">
-<h2 class="anchored" data-anchor-id="counterfactual-explanations-ce">Counterfactual Explanations (CE)</h2>
+<section id="counterfactual-explanations-ce" class="level3">
+<h3 class="anchored" data-anchor-id="counterfactual-explanations-ce">Counterfactual Explanations (CE)</h3>
 <ul>
 <li><span class="citation" data-cites="wachter2017counterfactual">@wachter2017counterfactual</span> were among the first to propose counterfactual explanations that do not require knowledge about the inner workings of a black box model.</li>
 <li><span class="citation" data-cites="ustun2019actionable">@ustun2019actionable</span> propose a framework for <em>actionable</em> recourse in the context of linear classifiers.</li>

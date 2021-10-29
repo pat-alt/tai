@@ -106,31 +106,21 @@
 <li><a href="#interpretability" class="nav-link" data-scroll-target="#interpretability">Interpretability</a></li>
 <li><a href="#uncertainty-quantification-and-applications" class="nav-link" data-scroll-target="#uncertainty-quantification-and-applications">Uncertainty quantification and applications</a></li>
 <li><a href="#computational-efficiency" class="nav-link" data-scroll-target="#computational-efficiency">Computational efficiency</a></li>
-<li><a href="#thoughts" class="nav-link" data-scroll-target="#thoughts">Thoughts</a></li>
 </ul></li>
 <li><a href="#causal-ai" class="nav-link" data-scroll-target="#causal-ai">Causal AI</a>
 <ul class="collapse">
 <li><a href="#background-1" class="nav-link" data-scroll-target="#background-1">Background</a></li>
 <li><a href="#structure-learning" class="nav-link" data-scroll-target="#structure-learning">Structure learning</a></li>
 <li><a href="#causal-ce" class="nav-link" data-scroll-target="#causal-ce">Link to CE and algorithmic recourse</a></li>
-<li><a href="#thoughts-1" class="nav-link" data-scroll-target="#thoughts-1">Thoughts</a></li>
 </ul></li>
 <li><a href="#robustness" class="nav-link" data-scroll-target="#robustness">Robustness</a>
 <ul class="collapse">
 <li><a href="#background-2" class="nav-link" data-scroll-target="#background-2">Background</a></li>
-<li><a href="#thoughts-2" class="nav-link" data-scroll-target="#thoughts-2">Thoughts</a></li>
-</ul></li>
-<li><a href="#applications" class="nav-link" data-scroll-target="#applications">Applications</a>
-<ul class="collapse">
-<li><a href="#some-topics" class="nav-link" data-scroll-target="#some-topics">Some topics</a></li>
-</ul></li>
-<li><a href="#annex" class="nav-link" data-scroll-target="#annex">Annex</a>
-<ul class="collapse">
-<li><a href="#other-random-thoughts" class="nav-link" data-scroll-target="#other-random-thoughts">Other random thoughts</a></li>
+<li><a href="#thoughts" class="nav-link" data-scroll-target="#thoughts">Thoughts</a></li>
 </ul></li>
 <li><a href="#references" class="nav-link" data-scroll-target="#references">References</a></li>
 </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/edit/main/literature.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav></div>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-8 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
 <main>
 <header id="title-block-header">
@@ -138,17 +128,17 @@
 </header>
 
 <p>This is a collection of interesting papers and thoughts around Trustworthy AI that I have been gradually compiling during the early stages of my PhD. Descriptions of papers are very brief. If you’d like to have access to more detailed handwritten notes, please just drop me a <a href="emailto:%20p.altmeyer@tudelft.nl">line</a>. A list of all references linked here can be found at the bottom.</p>
-<section id="explainability" class="level1">
-<h1>Explainability</h1>
-<section id="surrogate-explainers" class="level2">
-<h2 class="anchored" data-anchor-id="surrogate-explainers">Surrogate Explainers</h2>
+<section id="explainability" class="level2">
+<h2 class="anchored" data-anchor-id="explainability">Explainability</h2>
+<section id="surrogate-explainers" class="level3">
+<h3 class="anchored" data-anchor-id="surrogate-explainers">Surrogate Explainers</h3>
 <ul>
 <li><span class="citation" data-cites="ribeiro2016should">Ribeiro, Singh, and Guestrin (<a href="#ref-ribeiro2016should" role="doc-biblioref">2016</a>)</span> propose Local Interpretable Model-Agnostic Explanations (LIME): the approach involves generating local perturbations in the input space, deriving predictions from the original classifier and than fitting a white box model (e.g.&nbsp;linear regression) on this synthetic data set.</li>
 <li><span class="citation" data-cites="lundberg2017unified">Lundberg and Lee (<a href="#ref-lundberg2017unified" role="doc-biblioref">2017</a>)</span> propose SHAP as a provably unified approach to additive feature attribution methods (including LIME) with certain desiderata. Contrary to LIME, this approach involves permuting through the feature space and checking how different features impact model predictions when they are included in the permutations.</li>
 </ul>
 </section>
-<section id="criticism-surrogate-explainers" class="level2">
-<h2 class="anchored" data-anchor-id="criticism-surrogate-explainers">Criticism (Surrogate Explainers)</h2>
+<section id="criticism-surrogate-explainers" class="level3">
+<h3 class="anchored" data-anchor-id="criticism-surrogate-explainers">Criticism (Surrogate Explainers)</h3>
 <blockquote class="blockquote">
 <p>“Explanatory models by definition do not produce 100% reliable explanations, because they are approximations. This means explanations can’t be fully trusted, and so neither can the original model.” – <a href="https://www.causalens.com/blog/xai-doesnt-explain/">causaLens</a>, 2021</p>
 </blockquote>
@@ -168,8 +158,8 @@
 </ul>
 </div>
 </section>
-<section id="counterfactual-explanations-ce" class="level2">
-<h2 class="anchored" data-anchor-id="counterfactual-explanations-ce">Counterfactual Explanations (CE)</h2>
+<section id="counterfactual-explanations-ce" class="level3">
+<h3 class="anchored" data-anchor-id="counterfactual-explanations-ce">Counterfactual Explanations (CE)</h3>
 <ul>
 <li><span class="citation" data-cites="wachter2017counterfactual">Wachter, Mittelstadt, and Russell (<a href="#ref-wachter2017counterfactual" role="doc-biblioref">2017</a>)</span> were among the first to propose counterfactual explanations that do not require knowledge about the inner workings of a black box model.</li>
 <li><span class="citation" data-cites="ustun2019actionable">Ustun, Spangher, and Liu (<a href="#ref-ustun2019actionable" role="doc-biblioref">2019</a>)</span> propose a framework for <em>actionable</em> recourse in the context of linear classifiers.</li>
@@ -195,23 +185,23 @@
 </div>
 </section>
 </section>
-<section id="bayesian" class="level1">
-<h1>Bayesian Deep Learning</h1>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
+<section id="bayesian" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian">Bayesian Deep Learning</h2>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
 <ul>
 <li><span class="citation" data-cites="jospin2020hands">Jospin et al. (<a href="#ref-jospin2020hands" role="doc-biblioref">2020</a>)</span> provide a detailed and hands-on introduction to Bayesian Deep Learning.</li>
 <li><span class="citation" data-cites="murphy2022probabilistic">Murphy (<a href="#ref-murphy2022probabilistic" role="doc-biblioref">2022</a>)</span> is a text book that treats machine learning from a probabilistic perspective. It includes sections dedicated to deep learning.</li>
 </ul>
 </section>
-<section id="interpretability" class="level2">
-<h2 class="anchored" data-anchor-id="interpretability">Interpretability</h2>
+<section id="interpretability" class="level3">
+<h3 class="anchored" data-anchor-id="interpretability">Interpretability</h3>
 <ul>
 <li><span class="citation" data-cites="ish2019interpreting">Ish-Horowicz et al. (<a href="#ref-ish2019interpreting" role="doc-biblioref">2019</a>)</span> proposes an entropy-based measure for interpreting Bayesian Neural Networks. For a summary see <a href="https://pat-alt.github.io/2021/02/07/a-peek-inside-the-black-box-interpreting-neural-networks/">here</a>.</li>
 </ul>
 </section>
-<section id="uncertainty-quantification-and-applications" class="level2">
-<h2 class="anchored" data-anchor-id="uncertainty-quantification-and-applications">Uncertainty quantification and applications</h2>
+<section id="uncertainty-quantification-and-applications" class="level3">
+<h3 class="anchored" data-anchor-id="uncertainty-quantification-and-applications">Uncertainty quantification and applications</h3>
 <ul>
 <li><span class="citation" data-cites="gal2016dropout">Gal and Ghahramani (<a href="#ref-gal2016dropout" role="doc-biblioref">2016</a>)</span> demonstrate that a dropout neural network is equivalent to approximate inference in Bayesian modelling of deep Gaussian processes. This makes it straight-forward to quantify uncertainty in deep learning through simple Monte-Carlo methods.</li>
 <li><span class="citation" data-cites="gal2017deep">Gal, Islam, and Ghahramani (<a href="#ref-gal2017deep" role="doc-biblioref">2017</a>)</span> propose a way towards deep active Bayesian learning that plays with the ideas of aleatoric and epsitemic uncertainty: a structured approach to human-in-the-loop deep learning that can work with small data sets.
@@ -220,41 +210,40 @@
 </ul></li>
 </ul>
 </section>
-<section id="computational-efficiency" class="level2">
-<h2 class="anchored" data-anchor-id="computational-efficiency">Computational efficiency</h2>
+<section id="computational-efficiency" class="level3">
+<h3 class="anchored" data-anchor-id="computational-efficiency">Computational efficiency</h3>
 <ul>
 <li>Quantum computing likely to make probabilistic modelling more computationally efficient. <span class="citation" data-cites="kehoe2021defence">Kehoe et al. (<a href="#ref-kehoe2021defence" role="doc-biblioref">2021</a>)</span> propose a Bayesian approach to DL using quantum processors that promises to be more robust than conventional DNNs.</li>
 <li>Using simple concentration inequalities Maxim Panov proposes a measure for total uncertainty of Deep Neural Networks (no numerical methods needed) – missing a paper references here.</li>
 </ul>
-</section>
-<section id="thoughts" class="level2 thoughts">
-<h2 class="thoughts anchored" data-anchor-id="thoughts">Thoughts</h2>
+<div class="thoughts">
 <ul>
 <li><strong>Compare explainability in Bayesian setting (e.g.&nbsp;RATE <span class="citation" data-cites="ish2019interpreting">(<a href="#ref-ish2019interpreting" role="doc-biblioref">Ish-Horowicz et al. 2019</a>)</span>) to surrogate (and counterfactual) explainers? (ING models)</strong></li>
 <li>Link to AFR track on quantum ML.</li>
 <li>Link to uncertainty quantification for Deep Vector Autoregression <span class="citation" data-cites="agusti2021deep">(<a href="#ref-agusti2021deep" role="doc-biblioref">Agusti, Altmeyer, and Vidal-Quadras Costa 2021</a>)</span>.</li>
 </ul>
+</div>
 </section>
 </section>
-<section id="causal-ai" class="level1">
-<h1>Causal AI</h1>
-<section id="background-1" class="level2">
-<h2 class="anchored" data-anchor-id="background-1">Background</h2>
+<section id="causal-ai" class="level2">
+<h2 class="anchored" data-anchor-id="causal-ai">Causal AI</h2>
+<section id="background-1" class="level3">
+<h3 class="anchored" data-anchor-id="background-1">Background</h3>
 <ul>
 <li>There is an emerging view that that current efforts towards interpretability and robustness are fruitless and only an incorporation of causality can provide answers <span class="citation" data-cites="pearl2018book">(<a href="#ref-pearl2018book" role="doc-biblioref">Pearl and Mackenzie 2018</a>)</span>.</li>
 <li><span class="citation" data-cites="pearl2019seven">Pearl (<a href="#ref-pearl2019seven" role="doc-biblioref">2019</a>)</span> argues that AI is current stuck at the <em>association</em> level: models are limited to learning <span class="math inline">\(P(y|X)\)</span> (“glorified curve fitting”). Starting from causal graphical models (CGM) improves transparency and domain adaptability.</li>
 </ul>
 </section>
-<section id="structure-learning" class="level2">
-<h2 class="anchored" data-anchor-id="structure-learning">Structure learning</h2>
+<section id="structure-learning" class="level3">
+<h3 class="anchored" data-anchor-id="structure-learning">Structure learning</h3>
 <ul>
 <li><span class="citation" data-cites="zheng2018dags">Zheng et al. (<a href="#ref-zheng2018dags" role="doc-biblioref">2018</a>)</span> proposes to cast the combinatorial problem of learning a CGM into a continuous problem that can be learned through standard non-convex constrained optimization for linear structural equation models (SEM).</li>
 <li><span class="citation" data-cites="lachapelle2019gradient">Lachapelle et al. (<a href="#ref-lachapelle2019gradient" role="doc-biblioref">2019</a>)</span> extend this idea to the non-linear case.</li>
 <li><span class="citation" data-cites="bussmann2020neural">Bussmann, Nys, and Latré (<a href="#ref-bussmann2020neural" role="doc-biblioref">2020</a>)</span> propose Neural Additive Vector Autoregression (NAVAR) for (Granger) causal discovery in time series setting. The model can be seen as a Generalised Additive Model and is therefore inherently (somewhat) interpretable. It is based on the assumption that contemporary dependencies between variables are linear, only dependencies through time require non-linear model.</li>
 </ul>
 </section>
-<section id="causal-ce" class="level2">
-<h2 class="anchored" data-anchor-id="causal-ce">Link to CE and algorithmic recourse</h2>
+<section id="causal-ce" class="level3">
+<h3 class="anchored" data-anchor-id="causal-ce">Link to CE and algorithmic recourse</h3>
 <ul>
 <li><span class="citation" data-cites="joshi2019towards">Joshi et al. (<a href="#ref-joshi2019towards" role="doc-biblioref">2019</a>)</span> make an interesting link between CGM and counterfactual explanations: they draw an analogy between hidden confounders in CGMs and the latent manifold which REVISE traverses to propose recourse. Run a single experiment on TWIN dataset and show that recommended recourse changes qualitatively as confounding is introduced.</li>
 <li><span class="citation" data-cites="karimi2020algorithmic">Karimi et al. (<a href="#ref-karimi2020algorithmic" role="doc-biblioref">2020</a>)</span> develop two probabilistic approaches to algorithmic recourse in the case of limited causal knowledge.
@@ -263,9 +252,7 @@
 </ul></li>
 <li><span class="citation" data-cites="karimi2021algorithmic">Karimi, Schölkopf, and Valera (<a href="#ref-karimi2021algorithmic" role="doc-biblioref">2021</a>)</span> demonstrate how to go from counterfactuals to interventions in the case of complete knowledge of the CGM. Propose a shift of paradigm from <em>recourse via counterfactuals</em> to <em>recourse through minimal interventions</em>.</li>
 </ul>
-</section>
-<section id="thoughts-1" class="level2 thoughts">
-<h2 class="thoughts anchored" data-anchor-id="thoughts-1">Thoughts</h2>
+<div class="thoughts">
 <ul>
 <li>Can explore the link between CGM and CE further, perhaps in the context of Bayesian classifier <span class="citation" data-cites="schut2021generating">(<a href="#ref-schut2021generating" role="doc-biblioref">Schut et al. 2021</a>)</span>.
 <ul>
@@ -279,64 +266,29 @@
 <li>…</li>
 </ul></li>
 </ul>
+</div>
 </section>
 </section>
-<section id="robustness" class="level1">
-<h1>Robustness</h1>
-<section id="background-2" class="level2">
-<h2 class="anchored" data-anchor-id="background-2">Background</h2>
+<section id="robustness" class="level2">
+<h2 class="anchored" data-anchor-id="robustness">Robustness</h2>
+<section id="background-2" class="level3">
+<h3 class="anchored" data-anchor-id="background-2">Background</h3>
 <ul>
 <li><span class="citation" data-cites="szegedy2013intriguing">Szegedy et al. (<a href="#ref-szegedy2013intriguing" role="doc-biblioref">2013</a>)</span> were the first to point out the existence of adversarial examples in the image classification domain.</li>
 <li><span class="citation" data-cites="goodfellow2014explaining">Goodfellow, Shlens, and Szegedy (<a href="#ref-goodfellow2014explaining" role="doc-biblioref">2014</a>)</span> argue that the existence of adversarial examples can be explained solely by the locally-linear nature of artificial neural networks. They show how simple linear perturbation through their <em>fast gradient sign method</em> can consistently fool many state-of-the-art neural networks. Adversarial training can improve robustness to some extent, but DNNs are still highly confident with respect to misclassified labels.</li>
 <li><span class="citation" data-cites="carlini2017towards">Carlini and Wagner (<a href="#ref-carlini2017towards" role="doc-biblioref">2017</a>)</span> show that an initially promising method for robustifying DNNs, namely <em>defensive distillation</em>, is in fact insufficient. They argue that their adversarial attacks should serve as a benchmark for evaluating the robustness of DNNs.</li>
 </ul>
 </section>
-<section id="thoughts-2" class="level2 thoughts">
-<h2 class="thoughts anchored" data-anchor-id="thoughts-2">Thoughts</h2>
+<section id="thoughts" class="level3 thoughts">
+<h3 class="thoughts anchored" data-anchor-id="thoughts">Thoughts</h3>
+<div class="thoughts">
 <ul>
 <li><strong>Link to anomaly detection (ING)</strong></li>
 <li><strong>Out-of-distribution detection for time series models (e.g.&nbsp;avoid Covid scenarios leading to model failures <span class="citation" data-cites="bholat2020impact">(<a href="#ref-bholat2020impact" role="doc-biblioref">Bholat, Gharbawi, and Thew 2020</a>)</span>)</strong>.</li>
 <li>If adversarial training affects the success of adversarial attacks, does it also affect success of CE?</li>
 <li>Can we penalize instability much like we penalize complexity in empirical risk minimization?</li>
 </ul>
-</section>
-</section>
-<section id="applications" class="level1">
-<h1>Applications</h1>
-<section id="some-topics" class="level2">
-<h2 class="anchored" data-anchor-id="some-topics">Some topics</h2>
-<ul>
-<li><strong>Time series modelling and forecasting</strong>: could extend our previous work <span class="citation" data-cites="agusti2021deep">(<a href="#ref-agusti2021deep" role="doc-biblioref">Agusti, Altmeyer, and Vidal-Quadras Costa 2021</a>)</span> and apply to ING context.</li>
-<li><strong>Financial Stability</strong>:
-<ul>
-<li>AI robustness and the Covid crisis - negative impact of ML on model performance.</li>
-<li>Potential for herding behaviour if large share of market participants uses off-the-shelf ML tools <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
-</ul></li>
-<li><strong>Market Microstructure</strong>:
-<ul>
-<li>ML model collusion hard to detect <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
-<li>Lack of explainability inhibits timely model adjustments <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
-<li>Intentional lack of transparency for proprietary trading <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
-</ul></li>
-<li><strong>SupTech and RegTech</strong>:
-<ul>
-<li>Using AI to self-regulate in a transparent, trustworthy way <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
-</ul></li>
-<li><strong>Intent classification</strong> (Hadi): much like predicting a 3D shape from a 2D input, intent classification from natural language is an ill-posed problem that should be tackled using Bayesian inference <span class="citation" data-cites="murphy2022probabilistic">(<a href="#ref-murphy2022probabilistic" role="doc-biblioref">Murphy 2022</a>)</span>.</li>
-<li><strong>Anomaly detection for time series</strong> (Hadi): Bayesian DL for out-of-distribution detection.</li>
-</ul>
-</section>
-</section>
-<section id="annex" class="level1">
-<h1>Annex</h1>
-<section id="other-random-thoughts" class="level2">
-<h2 class="anchored" data-anchor-id="other-random-thoughts">Other random thoughts</h2>
-<ul>
-<li>Explainability in the context of (deep) reinforcement learning for RecSys.</li>
-<li>Regime-switching/structural break detection for non-stationary multi-armed bandits (RecSys).</li>
-<li>RecSys and lessons from behavioural sciences: default choices, menu sizes, goals.</li>
-<li>Link between GNN and DAG.</li>
-</ul>
+</div>
 </section>
 </section>
 <section id="references" class="level1 unnumbered">
@@ -401,9 +353,6 @@ Mittelstadt, Brent, Chris Russell, and Sandra Wachter. 2019. <span>“Explaining
 </div>
 <div id="ref-murphy2022probabilistic" class="csl-entry" role="doc-biblioentry">
 Murphy, Kevin P. 2022. <em>Probabilistic Machine Learning: An Introduction</em>. MIT Press.
-</div>
-<div id="ref-oecd2021artificial" class="csl-entry" role="doc-biblioentry">
-OECD. 2021. <span>“Artificial Intelligence, Machine Learning and Big Data in Finance: Opportunities, Challenges and Implications for Policy Makers.”</span> OECD. 2021. <a href="https://www.oecd.org/finance/financial-markets/Artificial-intelligence-machine-learning-big-data-in-finance.pdf">https://www.oecd.org/finance/financial-markets/Artificial-intelligence-machine-learning-big-data-in-finance.pdf</a>.
 </div>
 <div id="ref-pearl2019seven" class="csl-entry" role="doc-biblioentry">
 Pearl, Judea. 2019. <span>“The Seven Tools of Causal Inference, with Reflections on Machine Learning.”</span> <em>Communications of the ACM</em> 62 (3): 54–60.

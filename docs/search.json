@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "tai",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "index.html#whats-this",
     "href": "index.html#whats-this",
     "title": "Trustworthy AI",
@@ -28,262 +14,73 @@
     "text": "This is a Quarto website that was built within just a few hours.\n\nQuarto® is an open-source scientific and technical publishing system built on Pandoc. Quarto documents are authored using markdown, an easy to write plain text format.\n\nQuarto is among the latest advancements brought to us by RStudio. It promises to offer a publishing system that is largely language agnostic. Among other things it comes with native support for both Jupyter and Knitr."
   },
   {
-    "objectID": "private/causal_ai.html#background",
-    "href": "private/causal_ai.html#background",
+    "objectID": "private/causal_ai.html#causal-ai",
+    "href": "private/causal_ai.html#causal-ai",
     "title": "Trustworthy AI",
-    "section": "Background",
-    "text": "There is an emerging view that that current efforts towards interpretability and robustness are fruitless and only an incorporation of causality can provide answers [@pearl2018book].\n@pearl2019seven argues that AI is current stuck at the association level: models are limited to learning \\(P(y|X)\\) (“glorified curve fitting”). Starting from causal graphical models (CGM) improves transparency and domain adaptability."
+    "section": "Causal AI",
+    "text": "Background\n\nThere is an emerging view that that current efforts towards interpretability and robustness are fruitless and only an incorporation of causality can provide answers [@pearl2018book].\n@pearl2019seven argues that AI is current stuck at the association level: models are limited to learning \\(P(y|X)\\) (“glorified curve fitting”). Starting from causal graphical models (CGM) improves transparency and domain adaptability.\n\n\n\nStructure learning\n\n@zheng2018dags proposes to cast the combinatorial problem of learning a CGM into a continuous problem that can be learned through standard non-convex constrained optimization for linear structural equation models (SEM).\n@lachapelle2019gradient extend this idea to the non-linear case.\n@bussmann2020neural propose Neural Additive Vector Autoregression (NAVAR) for (Granger) causal discovery in time series setting. The model can be seen as a Generalised Additive Model and is therefore inherently (somewhat) interpretable. It is based on the assumption that contemporary dependencies between variables are linear, only dependencies through time require non-linear model.\n\n\n\nLink to CE and algorithmic recourse\n\n@joshi2019towards make an interesting link between CGM and counterfactual explanations: they draw an analogy between hidden confounders in CGMs and the latent manifold which REVISE traverses to propose recourse. Run a single experiment on TWIN dataset and show that recommended recourse changes qualitatively as confounding is introduced.\n@karimi2020algorithmic develop two probabilistic approaches to algorithmic recourse in the case of limited causal knowledge.\n\nIn essence the probabilistic approach boils down to assuming a Gaussian Process prior for the causal mapping parent nodes to node \\(X\\). This yields a posterior noise distribution, which in turn can be used to draw from a counterfactual distribution.\n\n@karimi2021algorithmic demonstrate how to go from counterfactuals to interventions in the case of complete knowledge of the CGM. Propose a shift of paradigm from recourse via counterfactuals to recourse through minimal interventions.\n\n\n\nCan explore the link between CGM and CE further, perhaps in the context of Bayesian classifier [@schut2021generating].\n\nIn particular, it might be possible to draw an analogue between @schut2021generating (low epistemic + aleatoric uncertainty) and the counterfactual distribution proposed by @karimi2020algorithmic. Could further try to account for hidden confounders as in @joshi2019towards.\n\n@karimi2021algorithmic can be solved through by building on existing frameworks for generating nearest counterfactual explanations - could try to apply @schut2021generating?\nApplications at ING?\n\nApply to loan application decision system (if exists)\nApply to credit scoring (perhaps even Dutch government scandal)\n…"
   },
   {
-    "objectID": "private/causal_ai.html#structure-learning",
-    "href": "private/causal_ai.html#structure-learning",
+    "objectID": "private/explainability.html#explainability",
+    "href": "private/explainability.html#explainability",
     "title": "Trustworthy AI",
-    "section": "Structure learning",
-    "text": "@zheng2018dags proposes to cast the combinatorial problem of learning a CGM into a continuous problem that can be learned through standard non-convex constrained optimization for linear structural equation models (SEM).\n@lachapelle2019gradient extend this idea to the non-linear case.\n@bussmann2020neural propose Neural Additive Vector Autoregression (NAVAR) for (Granger) causal discovery in time series setting. The model can be seen as a Generalised Additive Model and is therefore inherently (somewhat) interpretable. It is based on the assumption that contemporary dependencies between variables are linear, only dependencies through time require non-linear model."
+    "section": "Explainability",
+    "text": "Surrogate Explainers\n\n@ribeiro2016should propose Local Interpretable Model-Agnostic Explanations (LIME): the approach involves generating local perturbations in the input space, deriving predictions from the original classifier and than fitting a white box model (e.g. linear regression) on this synthetic data set.\n@lundberg2017unified propose SHAP as a provably unified approach to additive feature attribution methods (including LIME) with certain desiderata. Contrary to LIME, this approach involves permuting through the feature space and checking how different features impact model predictions when they are included in the permutations.\n\n\n\nCriticism (Surrogate Explainers)\n\n“Explanatory models by definition do not produce 100% reliable explanations, because they are approximations. This means explanations can’t be fully trusted, and so neither can the original model.” – causaLens, 2021\n\n\n@mittelstadt2019explaining points out that there is a gap in the understanding of what explanations are between computer scientists and explanation scientists (social scientists, cognitive scientists, pyschologists, …). Current methods produce at best locally reliable explanations. There needs to be shift towards interactive explanations.\n@rudin2019stop argues that instead of bothering with explanations for black box models we should focus on designing inherently interpretable models. In her view the trade-off between (intrinsic) explainability and performance is not as clear-cut as people claim.\n@lakkaraju2020fool show how misleading black box explanations can manipulate users into trusting an untrustworthy model.\n@slack2020fooling demonstrate that both LIME and SHAP are not reliable: their reliance on feature perturbations makes them susceptible to adversarial attacks.\n\n\n\nCan we quantify robustness of surrogate explainers?\nComparison of different complexity measures.\nDesign surrogate explainer that incorporates causality.\nSurrogate explainers by definition are approximations of black box models, so can never be 100% trusted.\nAdversarially robust surrogate explainers by minimizing divergence between observed and perturbed data. [@slack2020fooling]\n\n\n\n\nCounterfactual Explanations (CE)\n\n@wachter2017counterfactual were among the first to propose counterfactual explanations that do not require knowledge about the inner workings of a black box model.\n@ustun2019actionable propose a framework for actionable recourse in the context of linear classifiers.\n@joshi2019towards extend the framework of @ustun2019actionable. Their proposed REVISE method is applicable to a broader class of models including black box classifiers and structural causal models. For a summary see here and for a set of slides see here.\n@poyiadzi2020face propose FACE: feasible and actionable counterfactual explanations. The premise is that the shortest distance to the decision boundary may not be a desirable counterfactual.\n@schut2021generating introduce Bayesian modelling to the context of CE: their approach implicitly minimizes aleatoric and epistemic uncertainty to generate a CE that us unambiguous and realistic, respectively.\n\n\n\nTest what counterfactual explanations are most desirable through user study at ING\nDesign counterfactual explanations that incorporate causality\n\nThere are in fact several very recent papers (including @joshi2019towards) that link CGMs to counterfactual explanations (see below)\n\nTime series: what is the link to counterfactual analysis in multivariate time series? (e.g. chapter 4 in @kilian2017structural)\nWhat about the continuous outcome variables? (e.g. target inflation rate, … ING cases?)\nHow do counterfactual explainers fare where LIME/SHAP fail? [@slack2020fooling]\nCan counterfactual explainers be fooled much like LIME/SHAP?\nCan we establish a link between counterfactual and surrogate explainers? Important attributes identified by LIME/SHAP should play a prominent role in counterfactuals.\nCan counterfactual explainers be used to detect adversarial examples?\nLimiting behaviour: what happens if all individual with negative outcome move across the original decision boundary?"
   },
   {
-    "objectID": "private/causal_ai.html#causal-ce",
-    "href": "private/causal_ai.html#causal-ce",
+    "objectID": "private/robustness.html#robustness",
+    "href": "private/robustness.html#robustness",
     "title": "Trustworthy AI",
-    "section": "Link to CE and algorithmic recourse",
-    "text": "@joshi2019towards make an interesting link between CGM and counterfactual explanations: they draw an analogy between hidden confounders in CGMs and the latent manifold which REVISE traverses to propose recourse. Run a single experiment on TWIN dataset and show that recommended recourse changes qualitatively as confounding is introduced.\n@karimi2020algorithmic develop two probabilistic approaches to algorithmic recourse in the case of limited causal knowledge.\n\nIn essence the probabilistic approach boils down to assuming a Gaussian Process prior for the causal mapping parent nodes to node \\(X\\). This yields a posterior noise distribution, which in turn can be used to draw from a counterfactual distribution.\n\n@karimi2021algorithmic demonstrate how to go from counterfactuals to interventions in the case of complete knowledge of the CGM. Propose a shift of paradigm from recourse via counterfactuals to recourse through minimal interventions."
+    "section": "Robustness",
+    "text": "Background\n\n@szegedy2013intriguing were the first to point out the existence of adversarial examples in the image classification domain.\n@goodfellow2014explaining argue that the existence of adversarial examples can be explained solely by the locally-linear nature of artificial neural networks. They show how simple linear perturbation through their fast gradient sign method can consistently fool many state-of-the-art neural networks. Adversarial training can improve robustness to some extent, but DNNs are still highly confident with respect to misclassified labels.\n@carlini2017towards show that an initially promising method for robustifying DNNs, namely defensive distillation, is in fact insufficient. They argue that their adversarial attacks should serve as a benchmark for evaluating the robustness of DNNs.\n\n\n\nThoughts\n\n\nLink to anomaly detection (ING)\nOut-of-distribution detection for time series models (e.g. avoid Covid scenarios leading to model failures [@bholat2020impact]).\nIf adversarial training affects the success of adversarial attacks, does it also affect success of CE?\nCan we penalize instability much like we penalize complexity in empirical risk minimization?"
   },
   {
-    "objectID": "private/causal_ai.html#thoughts",
-    "href": "private/causal_ai.html#thoughts",
+    "objectID": "private/bayesian.html#bayesian",
+    "href": "private/bayesian.html#bayesian",
     "title": "Trustworthy AI",
-    "section": "Thoughts",
-    "text": "Can explore the link between CGM and CE further, perhaps in the context of Bayesian classifier [@schut2021generating].\n\nIn particular, it might be possible to draw an analogue between @schut2021generating (low epistemic + aleatoric uncertainty) and the counterfactual distribution proposed by @karimi2020algorithmic. Could further try to account for hidden confounders as in @joshi2019towards.\n\n@karimi2021algorithmic can be solved through by building on existing frameworks for generating nearest counterfactual explanations - could try to apply @schut2021generating?\nApplications at ING?\n\nApply to loan application decision system (if exists)\nApply to credit scoring (perhaps even Dutch government scandal)\n…"
+    "section": "Bayesian Deep Learning",
+    "text": "Background\n\n@jospin2020hands provide a detailed and hands-on introduction to Bayesian Deep Learning.\n@murphy2022probabilistic is a text book that treats machine learning from a probabilistic perspective. It includes sections dedicated to deep learning.\n\n\n\nInterpretability\n\n@ish2019interpreting proposes an entropy-based measure for interpreting Bayesian Neural Networks. For a summary see here.\n\n\n\nUncertainty quantification and applications\n\n@gal2016dropout demonstrate that a dropout neural network is equivalent to approximate inference in Bayesian modelling of deep Gaussian processes. This makes it straight-forward to quantify uncertainty in deep learning through simple Monte-Carlo methods.\n@gal2017deep propose a way towards deep active Bayesian learning that plays with the ideas of aleatoric and epsitemic uncertainty: a structured approach to human-in-the-loop deep learning that can work with small data sets.\n\n@kirsch2019batchbald extend these ideas.\n\n\n\n\nComputational efficiency\n\nQuantum computing likely to make probabilistic modelling more computationally efficient. @kehoe2021defence propose a Bayesian approach to DL using quantum processors that promises to be more robust than conventional DNNs.\nUsing simple concentration inequalities Maxim Panov proposes a measure for total uncertainty of Deep Neural Networks (no numerical methods needed) – missing a paper references here.\n\n\n\nCompare explainability in Bayesian setting (e.g. RATE [@ish2019interpreting]) to surrogate (and counterfactual) explainers? (ING models)\nLink to AFR track on quantum ML.\nLink to uncertainty quantification for Deep Vector Autoregression [@agusti2021deep]."
   },
   {
-    "objectID": "private/explainability.html#surrogate-explainers",
-    "href": "private/explainability.html#surrogate-explainers",
+    "objectID": "private/annex.html#annex",
+    "href": "private/annex.html#annex",
     "title": "Trustworthy AI",
-    "section": "Surrogate Explainers",
-    "text": "@ribeiro2016should propose Local Interpretable Model-Agnostic Explanations (LIME): the approach involves generating local perturbations in the input space, deriving predictions from the original classifier and than fitting a white box model (e.g. linear regression) on this synthetic data set.\n@lundberg2017unified propose SHAP as a provably unified approach to additive feature attribution methods (including LIME) with certain desiderata. Contrary to LIME, this approach involves permuting through the feature space and checking how different features impact model predictions when they are included in the permutations."
+    "section": "Annex",
+    "text": "Other random thoughts\n\nExplainability in the context of (deep) reinforcement learning for RecSys.\nRegime-switching/structural break detection for non-stationary multi-armed bandits (RecSys).\nRecSys and lessons from behavioural sciences: default choices, menu sizes, goals.\nLink between GNN and DAG."
   },
   {
-    "objectID": "private/explainability.html#criticism-surrogate-explainers",
-    "href": "private/explainability.html#criticism-surrogate-explainers",
+    "objectID": "private/applications.html#applications",
+    "href": "private/applications.html#applications",
     "title": "Trustworthy AI",
-    "section": "Criticism (Surrogate Explainers)",
-    "text": "“Explanatory models by definition do not produce 100% reliable explanations, because they are approximations. This means explanations can’t be fully trusted, and so neither can the original model.” – causaLens, 2021\n\n\n@mittelstadt2019explaining points out that there is a gap in the understanding of what explanations are between computer scientists and explanation scientists (social scientists, cognitive scientists, pyschologists, …). Current methods produce at best locally reliable explanations. There needs to be shift towards interactive explanations.\n@rudin2019stop argues that instead of bothering with explanations for black box models we should focus on designing inherently interpretable models. In her view the trade-off between (intrinsic) explainability and performance is not as clear-cut as people claim.\n@lakkaraju2020fool show how misleading black box explanations can manipulate users into trusting an untrustworthy model.\n@slack2020fooling demonstrate that both LIME and SHAP are not reliable: their reliance on feature perturbations makes them susceptible to adversarial attacks.\n\n\n\nCan we quantify robustness of surrogate explainers?\nComparison of different complexity measures.\nDesign surrogate explainer that incorporates causality.\nSurrogate explainers by definition are approximations of black box models, so can never be 100% trusted.\nAdversarially robust surrogate explainers by minimizing divergence between observed and perturbed data. [@slack2020fooling]"
+    "section": "Applications",
+    "text": "Some topics\n\nTime series modelling and forecasting: could extend our previous work [@agusti2021deep] and apply to ING context.\nFinancial Stability:\n\nAI robustness and the Covid crisis - negative impact of ML on model performance.\nPotential for herding behaviour if large share of market participants uses off-the-shelf ML tools [@oecd2021artificial].\n\nMarket Microstructure:\n\nML model collusion hard to detect [@oecd2021artificial].\nLack of explainability inhibits timely model adjustments [@oecd2021artificial].\nIntentional lack of transparency for proprietary trading [@oecd2021artificial].\n\nSupTech and RegTech:\n\nUsing AI to self-regulate in a transparent, trustworthy way [@oecd2021artificial].\n\nIntent classification (Hadi): much like predicting a 3D shape from a 2D input, intent classification from natural language is an ill-posed problem that should be tackled using Bayesian inference [@murphy2022probabilistic].\nAnomaly detection for time series (Hadi): Bayesian DL for out-of-distribution detection."
   },
   {
-    "objectID": "private/explainability.html#thoughts-surrogate-explainers",
-    "href": "private/explainability.html#thoughts-surrogate-explainers",
-    "title": "Trustworthy AI",
-    "section": "Thoughts (Surrogate Explainers)",
-    "text": "Can we quantify robustness of surrogate explainers?\nComparison of different complexity measures.\nDesign surrogate explainer that incorporates causality.\nSurrogate explainers by definition are approximations of black box models, so can never be 100% trusted.\nAdversarially robust surrogate explainers by minimizing divergence between observed and perturbed data. [@slack2020fooling]"
-  },
-  {
-    "objectID": "private/explainability.html#counterfactual-explanations-ce",
-    "href": "private/explainability.html#counterfactual-explanations-ce",
-    "title": "Trustworthy AI",
-    "section": "Counterfactual Explanations (CE)",
-    "text": "@wachter2017counterfactual were among the first to propose counterfactual explanations that do not require knowledge about the inner workings of a black box model.\n@ustun2019actionable propose a framework for actionable recourse in the context of linear classifiers.\n@joshi2019towards extend the framework of @ustun2019actionable. Their proposed REVISE method is applicable to a broader class of models including black box classifiers and structural causal models. For a summary see here and for a set of slides see here.\n@poyiadzi2020face propose FACE: feasible and actionable counterfactual explanations. The premise is that the shortest distance to the decision boundary may not be a desirable counterfactual.\n@schut2021generating introduce Bayesian modelling to the context of CE: their approach implicitly minimizes aleatoric and epistemic uncertainty to generate a CE that us unambiguous and realistic, respectively.\n\n\n\nTest what counterfactual explanations are most desirable through user study at ING\nDesign counterfactual explanations that incorporate causality\n\nThere are in fact several very recent papers (including @joshi2019towards) that link CGMs to counterfactual explanations (see below)\n\nTime series: what is the link to counterfactual analysis in multivariate time series? (e.g. chapter 4 in @kilian2017structural)\nWhat about the continuous outcome variables? (e.g. target inflation rate, … ING cases?)\nHow do counterfactual explainers fare where LIME/SHAP fail? [@slack2020fooling]\nCan counterfactual explainers be fooled much like LIME/SHAP?\nCan we establish a link between counterfactual and surrogate explainers? Important attributes identified by LIME/SHAP should play a prominent role in counterfactuals.\nCan counterfactual explainers be used to detect adversarial examples?\nLimiting behaviour: what happens if all individual with negative outcome move across the original decision boundary?"
-  },
-  {
-    "objectID": "private/explainability.html#thoughts-ce",
-    "href": "private/explainability.html#thoughts-ce",
-    "title": "Trustworthy AI",
-    "section": "Thoughts (CE)",
-    "text": "Test what counterfactual explanations are most desirable through user study at ING\nDesign counterfactual explanations that incorporate causality\n\nThere are in fact several very recent papers (including @joshi2019towards) that link CGMs to counterfactual explanations (see below)\n\nTime series: what is the link to counterfactual analysis in multivariate time series? (e.g. chapter 4 in @kilian2017structural)\nWhat about the continuous outcome variables? (e.g. target inflation rate, … ING cases?)\nHow do counterfactual explainers fare where LIME/SHAP fail? [@slack2020fooling]\nCan counterfactual explainers be fooled much like LIME/SHAP?\nCan we establish a link between counterfactual and surrogate explainers? Important attributes identified by LIME/SHAP should play a prominent role in counterfactuals.\nCan counterfactual explainers be used to detect adversarial examples?\nLimiting behaviour: what happens if all individual with negative outcome move across the original decision boundary?"
-  },
-  {
-    "objectID": "private/robustness.html#background",
-    "href": "private/robustness.html#background",
-    "title": "Trustworthy AI",
-    "section": "Background",
-    "text": "@szegedy2013intriguing were the first to point out the existence of adversarial examples in the image classification domain.\n@goodfellow2014explaining argue that the existence of adversarial examples can be explained solely by the locally-linear nature of artificial neural networks. They show how simple linear perturbation through their fast gradient sign method can consistently fool many state-of-the-art neural networks. Adversarial training can improve robustness to some extent, but DNNs are still highly confident with respect to misclassified labels.\n@carlini2017towards show that an initially promising method for robustifying DNNs, namely defensive distillation, is in fact insufficient. They argue that their adversarial attacks should serve as a benchmark for evaluating the robustness of DNNs."
-  },
-  {
-    "objectID": "private/robustness.html#thoughts",
-    "href": "private/robustness.html#thoughts",
-    "title": "Trustworthy AI",
-    "section": "Thoughts",
-    "text": "Link to anomaly detection (ING)\nOut-of-distribution detection for time series models (e.g. avoid Covid scenarios leading to model failures [@bholat2020impact]).\nIf adversarial training affects the success of adversarial attacks, does it also affect success of CE?\nCan we penalize instability much like we penalize complexity in empirical risk minimization?"
-  },
-  {
-    "objectID": "private/bayesian.html#background",
-    "href": "private/bayesian.html#background",
-    "title": "Trustworthy AI",
-    "section": "Background",
-    "text": "@jospin2020hands provide a detailed and hands-on introduction to Bayesian Deep Learning.\n@murphy2022probabilistic is a text book that treats machine learning from a probabilistic perspective. It includes sections dedicated to deep learning."
-  },
-  {
-    "objectID": "private/bayesian.html#interpretability",
-    "href": "private/bayesian.html#interpretability",
-    "title": "Trustworthy AI",
-    "section": "Interpretability",
-    "text": "@ish2019interpreting proposes an entropy-based measure for interpreting Bayesian Neural Networks. For a summary see here."
-  },
-  {
-    "objectID": "private/bayesian.html#uncertainty-quantification-and-applications",
-    "href": "private/bayesian.html#uncertainty-quantification-and-applications",
-    "title": "Trustworthy AI",
-    "section": "Uncertainty quantification and applications",
-    "text": "@gal2016dropout demonstrate that a dropout neural network is equivalent to approximate inference in Bayesian modelling of deep Gaussian processes. This makes it straight-forward to quantify uncertainty in deep learning through simple Monte-Carlo methods.\n@gal2017deep propose a way towards deep active Bayesian learning that plays with the ideas of aleatoric and epsitemic uncertainty: a structured approach to human-in-the-loop deep learning that can work with small data sets.\n\n@kirsch2019batchbald extend these ideas."
-  },
-  {
-    "objectID": "private/bayesian.html#computational-efficiency",
-    "href": "private/bayesian.html#computational-efficiency",
-    "title": "Trustworthy AI",
-    "section": "Computational efficiency",
-    "text": "Quantum computing likely to make probabilistic modelling more computationally efficient. @kehoe2021defence propose a Bayesian approach to DL using quantum processors that promises to be more robust than conventional DNNs.\nUsing simple concentration inequalities Maxim Panov proposes a measure for total uncertainty of Deep Neural Networks (no numerical methods needed) – missing a paper references here."
-  },
-  {
-    "objectID": "private/bayesian.html#thoughts",
-    "href": "private/bayesian.html#thoughts",
-    "title": "Trustworthy AI",
-    "section": "Thoughts",
-    "text": "Compare explainability in Bayesian setting (e.g. RATE [@ish2019interpreting]) to surrogate (and counterfactual) explainers? (ING models)\nLink to AFR track on quantum ML.\nLink to uncertainty quantification for Deep Vector Autoregression [@agusti2021deep]."
-  },
-  {
-    "objectID": "private/annex.html#other-random-thoughts",
-    "href": "private/annex.html#other-random-thoughts",
-    "title": "Trustworthy AI",
-    "section": "Other random thoughts",
-    "text": "Explainability in the context of (deep) reinforcement learning for RecSys.\nRegime-switching/structural break detection for non-stationary multi-armed bandits (RecSys).\nRecSys and lessons from behavioural sciences: default choices, menu sizes, goals.\nLink between GNN and DAG."
-  },
-  {
-    "objectID": "private/applications.html#some-topics",
-    "href": "private/applications.html#some-topics",
-    "title": "Trustworthy AI",
-    "section": "Some topics",
-    "text": "Time series modelling and forecasting: could extend our previous work [@agusti2021deep] and apply to ING context.\nFinancial Stability:\n\nAI robustness and the Covid crisis - negative impact of ML on model performance.\nPotential for herding behaviour if large share of market participants uses off-the-shelf ML tools [@oecd2021artificial].\n\nMarket Microstructure:\n\nML model collusion hard to detect [@oecd2021artificial].\nLack of explainability inhibits timely model adjustments [@oecd2021artificial].\nIntentional lack of transparency for proprietary trading [@oecd2021artificial].\n\nSupTech and RegTech:\n\nUsing AI to self-regulate in a transparent, trustworthy way [@oecd2021artificial].\n\nIntent classification (Hadi): much like predicting a 3D shape from a 2D input, intent classification from natural language is an ill-posed problem that should be tackled using Bayesian inference [@murphy2022probabilistic].\nAnomaly detection for time series (Hadi): Bayesian DL for out-of-distribution detection."
-  },
-  {
-    "objectID": "literature.html#whats-this",
-    "href": "literature.html#whats-this",
+    "objectID": "literature.html#explainability",
+    "href": "literature.html#explainability",
     "title": "Literature",
-    "section": "What’s this?",
-    "text": "This is a collection of interesting papers and thoughts around Trustworthy AI that I have been gradually compiling during the early stages of my PhD. Descriptions of papers are very brief. If you’d like to have access to more detailed handwritten notes, please just drop me a line. A list of all references linked here can be found at the bottom."
+    "section": "Explainability",
+    "text": "Surrogate Explainers\n\nRibeiro, Singh, and Guestrin (2016) propose Local Interpretable Model-Agnostic Explanations (LIME): the approach involves generating local perturbations in the input space, deriving predictions from the original classifier and than fitting a white box model (e.g. linear regression) on this synthetic data set.\nLundberg and Lee (2017) propose SHAP as a provably unified approach to additive feature attribution methods (including LIME) with certain desiderata. Contrary to LIME, this approach involves permuting through the feature space and checking how different features impact model predictions when they are included in the permutations.\n\n\n\nCriticism (Surrogate Explainers)\n\n“Explanatory models by definition do not produce 100% reliable explanations, because they are approximations. This means explanations can’t be fully trusted, and so neither can the original model.” – causaLens, 2021\n\n\nMittelstadt, Russell, and Wachter (2019) points out that there is a gap in the understanding of what explanations are between computer scientists and explanation scientists (social scientists, cognitive scientists, pyschologists, …). Current methods produce at best locally reliable explanations. There needs to be shift towards interactive explanations.\nRudin (2019) argues that instead of bothering with explanations for black box models we should focus on designing inherently interpretable models. In her view the trade-off between (intrinsic) explainability and performance is not as clear-cut as people claim.\nLakkaraju and Bastani (2020) show how misleading black box explanations can manipulate users into trusting an untrustworthy model.\nSlack et al. (2020) demonstrate that both LIME and SHAP are not reliable: their reliance on feature perturbations makes them susceptible to adversarial attacks.\n\n\n\nCan we quantify robustness of surrogate explainers?\nComparison of different complexity measures.\nDesign surrogate explainer that incorporates causality.\nSurrogate explainers by definition are approximations of black box models, so can never be 100% trusted.\nAdversarially robust surrogate explainers by minimizing divergence between observed and perturbed data. (Slack et al. 2020)\n\n\n\n\nCounterfactual Explanations (CE)\n\nWachter, Mittelstadt, and Russell (2017) were among the first to propose counterfactual explanations that do not require knowledge about the inner workings of a black box model.\nUstun, Spangher, and Liu (2019) propose a framework for actionable recourse in the context of linear classifiers.\nJoshi et al. (2019) extend the framework of Ustun, Spangher, and Liu (2019). Their proposed REVISE method is applicable to a broader class of models including black box classifiers and structural causal models. For a summary see here and for a set of slides see here.\nPoyiadzi et al. (2020) propose FACE: feasible and actionable counterfactual explanations. The premise is that the shortest distance to the decision boundary may not be a desirable counterfactual.\nSchut et al. (2021) introduce Bayesian modelling to the context of CE: their approach implicitly minimizes aleatoric and epistemic uncertainty to generate a CE that us unambiguous and realistic, respectively.\n\n\n\nTest what counterfactual explanations are most desirable through user study at ING\nDesign counterfactual explanations that incorporate causality\n\nThere are in fact several very recent papers (including Joshi et al. (2019)) that link CGMs to counterfactual explanations (see below)\n\nTime series: what is the link to counterfactual analysis in multivariate time series? (e.g. chapter 4 in Kilian and Lütkepohl (2017))\nWhat about the continuous outcome variables? (e.g. target inflation rate, … ING cases?)\nHow do counterfactual explainers fare where LIME/SHAP fail? (Slack et al. 2020)\nCan counterfactual explainers be fooled much like LIME/SHAP?\nCan we establish a link between counterfactual and surrogate explainers? Important attributes identified by LIME/SHAP should play a prominent role in counterfactuals.\nCan counterfactual explainers be used to detect adversarial examples?\nLimiting behaviour: what happens if all individual with negative outcome move across the original decision boundary?"
   },
   {
-    "objectID": "literature.html#surrogate-explainers",
-    "href": "literature.html#surrogate-explainers",
+    "objectID": "literature.html#bayesian",
+    "href": "literature.html#bayesian",
     "title": "Literature",
-    "section": "Surrogate Explainers",
-    "text": "Ribeiro, Singh, and Guestrin (2016) propose Local Interpretable Model-Agnostic Explanations (LIME): the approach involves generating local perturbations in the input space, deriving predictions from the original classifier and than fitting a white box model (e.g. linear regression) on this synthetic data set.\nLundberg and Lee (2017) propose SHAP as a provably unified approach to additive feature attribution methods (including LIME) with certain desiderata. Contrary to LIME, this approach involves permuting through the feature space and checking how different features impact model predictions when they are included in the permutations."
+    "section": "Bayesian Deep Learning",
+    "text": "Background\n\nJospin et al. (2020) provide a detailed and hands-on introduction to Bayesian Deep Learning.\nMurphy (2022) is a text book that treats machine learning from a probabilistic perspective. It includes sections dedicated to deep learning.\n\n\n\nInterpretability\n\nIsh-Horowicz et al. (2019) proposes an entropy-based measure for interpreting Bayesian Neural Networks. For a summary see here.\n\n\n\nUncertainty quantification and applications\n\nGal and Ghahramani (2016) demonstrate that a dropout neural network is equivalent to approximate inference in Bayesian modelling of deep Gaussian processes. This makes it straight-forward to quantify uncertainty in deep learning through simple Monte-Carlo methods.\nGal, Islam, and Ghahramani (2017) propose a way towards deep active Bayesian learning that plays with the ideas of aleatoric and epsitemic uncertainty: a structured approach to human-in-the-loop deep learning that can work with small data sets.\n\nKirsch, Van Amersfoort, and Gal (2019) extend these ideas.\n\n\n\n\nComputational efficiency\n\nQuantum computing likely to make probabilistic modelling more computationally efficient. Kehoe et al. (2021) propose a Bayesian approach to DL using quantum processors that promises to be more robust than conventional DNNs.\nUsing simple concentration inequalities Maxim Panov proposes a measure for total uncertainty of Deep Neural Networks (no numerical methods needed) – missing a paper references here.\n\n\n\nCompare explainability in Bayesian setting (e.g. RATE (Ish-Horowicz et al. 2019)) to surrogate (and counterfactual) explainers? (ING models)\nLink to AFR track on quantum ML.\nLink to uncertainty quantification for Deep Vector Autoregression (Agusti, Altmeyer, and Vidal-Quadras Costa 2021)."
   },
   {
-    "objectID": "literature.html#criticism-surrogate-explainers",
-    "href": "literature.html#criticism-surrogate-explainers",
+    "objectID": "literature.html#causal-ai",
+    "href": "literature.html#causal-ai",
     "title": "Literature",
-    "section": "Criticism (Surrogate Explainers)",
-    "text": "“Explanatory models by definition do not produce 100% reliable explanations, because they are approximations. This means explanations can’t be fully trusted, and so neither can the original model.” – causaLens, 2021\n\n\nMittelstadt, Russell, and Wachter (2019) points out that there is a gap in the understanding of what explanations are between computer scientists and explanation scientists (social scientists, cognitive scientists, pyschologists, …). Current methods produce at best locally reliable explanations. There needs to be shift towards interactive explanations.\nRudin (2019) argues that instead of bothering with explanations for black box models we should focus on designing inherently interpretable models. In her view the trade-off between (intrinsic) explainability and performance is not as clear-cut as people claim.\nLakkaraju and Bastani (2020) show how misleading black box explanations can manipulate users into trusting an untrustworthy model.\nSlack et al. (2020) demonstrate that both LIME and SHAP are not reliable: their reliance on feature perturbations makes them susceptible to adversarial attacks.\n\n\n\nCan we quantify robustness of surrogate explainers?\nComparison of different complexity measures.\nDesign surrogate explainer that incorporates causality.\nSurrogate explainers by definition are approximations of black box models, so can never be 100% trusted.\nAdversarially robust surrogate explainers by minimizing divergence between observed and perturbed data. (Slack et al. 2020)"
+    "section": "Causal AI",
+    "text": "Background\n\nThere is an emerging view that that current efforts towards interpretability and robustness are fruitless and only an incorporation of causality can provide answers (Pearl and Mackenzie 2018).\nPearl (2019) argues that AI is current stuck at the association level: models are limited to learning \\(P(y|X)\\) (“glorified curve fitting”). Starting from causal graphical models (CGM) improves transparency and domain adaptability.\n\n\n\nStructure learning\n\nZheng et al. (2018) proposes to cast the combinatorial problem of learning a CGM into a continuous problem that can be learned through standard non-convex constrained optimization for linear structural equation models (SEM).\nLachapelle et al. (2019) extend this idea to the non-linear case.\nBussmann, Nys, and Latré (2020) propose Neural Additive Vector Autoregression (NAVAR) for (Granger) causal discovery in time series setting. The model can be seen as a Generalised Additive Model and is therefore inherently (somewhat) interpretable. It is based on the assumption that contemporary dependencies between variables are linear, only dependencies through time require non-linear model.\n\n\n\nLink to CE and algorithmic recourse\n\nJoshi et al. (2019) make an interesting link between CGM and counterfactual explanations: they draw an analogy between hidden confounders in CGMs and the latent manifold which REVISE traverses to propose recourse. Run a single experiment on TWIN dataset and show that recommended recourse changes qualitatively as confounding is introduced.\nKarimi et al. (2020) develop two probabilistic approaches to algorithmic recourse in the case of limited causal knowledge.\n\nIn essence the probabilistic approach boils down to assuming a Gaussian Process prior for the causal mapping parent nodes to node \\(X\\). This yields a posterior noise distribution, which in turn can be used to draw from a counterfactual distribution.\n\nKarimi, Schölkopf, and Valera (2021) demonstrate how to go from counterfactuals to interventions in the case of complete knowledge of the CGM. Propose a shift of paradigm from recourse via counterfactuals to recourse through minimal interventions.\n\n\n\nCan explore the link between CGM and CE further, perhaps in the context of Bayesian classifier (Schut et al. 2021).\n\nIn particular, it might be possible to draw an analogue between Schut et al. (2021) (low epistemic + aleatoric uncertainty) and the counterfactual distribution proposed by Karimi et al. (2020). Could further try to account for hidden confounders as in Joshi et al. (2019).\n\nKarimi, Schölkopf, and Valera (2021) can be solved through by building on existing frameworks for generating nearest counterfactual explanations - could try to apply Schut et al. (2021)?\nApplications at ING?\n\nApply to loan application decision system (if exists)\nApply to credit scoring (perhaps even Dutch government scandal)\n…"
   },
   {
-    "objectID": "literature.html#thoughts-surrogate-explainers",
-    "href": "literature.html#thoughts-surrogate-explainers",
+    "objectID": "literature.html#robustness",
+    "href": "literature.html#robustness",
     "title": "Literature",
-    "section": "Thoughts (Surrogate Explainers)",
-    "text": "Can we quantify robustness of surrogate explainers?\nComparison of different complexity measures.\nDesign surrogate explainer that incorporates causality.\nSurrogate explainers by definition are approximations of black box models, so can never be 100% trusted.\nAdversarially robust surrogate explainers by minimizing divergence between observed and perturbed data. (Slack et al. 2020)"
-  },
-  {
-    "objectID": "literature.html#counterfactual-explanations-ce",
-    "href": "literature.html#counterfactual-explanations-ce",
-    "title": "Literature",
-    "section": "Counterfactual Explanations (CE)",
-    "text": "Wachter, Mittelstadt, and Russell (2017) were among the first to propose counterfactual explanations that do not require knowledge about the inner workings of a black box model.\nUstun, Spangher, and Liu (2019) propose a framework for actionable recourse in the context of linear classifiers.\nJoshi et al. (2019) extend the framework of Ustun, Spangher, and Liu (2019). Their proposed REVISE method is applicable to a broader class of models including black box classifiers and structural causal models. For a summary see here and for a set of slides see here.\nPoyiadzi et al. (2020) propose FACE: feasible and actionable counterfactual explanations. The premise is that the shortest distance to the decision boundary may not be a desirable counterfactual.\nSchut et al. (2021) introduce Bayesian modelling to the context of CE: their approach implicitly minimizes aleatoric and epistemic uncertainty to generate a CE that us unambiguous and realistic, respectively.\n\n\n\nTest what counterfactual explanations are most desirable through user study at ING\nDesign counterfactual explanations that incorporate causality\n\nThere are in fact several very recent papers (including Joshi et al. (2019)) that link CGMs to counterfactual explanations (see below)\n\nTime series: what is the link to counterfactual analysis in multivariate time series? (e.g. chapter 4 in Kilian and Lütkepohl (2017))\nWhat about the continuous outcome variables? (e.g. target inflation rate, … ING cases?)\nHow do counterfactual explainers fare where LIME/SHAP fail? (Slack et al. 2020)\nCan counterfactual explainers be fooled much like LIME/SHAP?\nCan we establish a link between counterfactual and surrogate explainers? Important attributes identified by LIME/SHAP should play a prominent role in counterfactuals.\nCan counterfactual explainers be used to detect adversarial examples?\nLimiting behaviour: what happens if all individual with negative outcome move across the original decision boundary?"
-  },
-  {
-    "objectID": "literature.html#thoughts-ce",
-    "href": "literature.html#thoughts-ce",
-    "title": "Literature",
-    "section": "Thoughts (CE)",
-    "text": "Test what counterfactual explanations are most desirable through user study at ING\nDesign counterfactual explanations that incorporate causality\n\nThere are in fact several very recent papers (including Joshi et al. (2019)) that link CGMs to counterfactual explanations (see below)\n\nTime series: what is the link to counterfactual analysis in multivariate time series? (e.g. chapter 4 in Kilian and Lütkepohl (2017))\nWhat about the continuous outcome variables? (e.g. target inflation rate, … ING cases?)\nHow do counterfactual explainers fare where LIME/SHAP fail? (Slack et al. 2020)\nCan counterfactual explainers be fooled much like LIME/SHAP?\nCan we establish a link between counterfactual and surrogate explainers? Important attributes identified by LIME/SHAP should play a prominent role in counterfactuals.\nCan counterfactual explainers be used to detect adversarial examples?\nLimiting behaviour: what happens if all individual with negative outcome move across the original decision boundary?"
-  },
-  {
-    "objectID": "literature.html#background",
-    "href": "literature.html#background",
-    "title": "Literature",
-    "section": "Background",
-    "text": "Jospin et al. (2020) provide a detailed and hands-on introduction to Bayesian Deep Learning.\nMurphy (2022) is a text book that treats machine learning from a probabilistic perspective. It includes sections dedicated to deep learning."
-  },
-  {
-    "objectID": "literature.html#interpretability",
-    "href": "literature.html#interpretability",
-    "title": "Literature",
-    "section": "Interpretability",
-    "text": "Ish-Horowicz et al. (2019) proposes an entropy-based measure for interpreting Bayesian Neural Networks. For a summary see here."
-  },
-  {
-    "objectID": "literature.html#uncertainty-quantification-and-applications",
-    "href": "literature.html#uncertainty-quantification-and-applications",
-    "title": "Literature",
-    "section": "Uncertainty quantification and applications",
-    "text": "Gal and Ghahramani (2016) demonstrate that a dropout neural network is equivalent to approximate inference in Bayesian modelling of deep Gaussian processes. This makes it straight-forward to quantify uncertainty in deep learning through simple Monte-Carlo methods.\nGal, Islam, and Ghahramani (2017) propose a way towards deep active Bayesian learning that plays with the ideas of aleatoric and epsitemic uncertainty: a structured approach to human-in-the-loop deep learning that can work with small data sets.\n\nKirsch, Van Amersfoort, and Gal (2019) extend these ideas."
-  },
-  {
-    "objectID": "literature.html#computational-efficiency",
-    "href": "literature.html#computational-efficiency",
-    "title": "Literature",
-    "section": "Computational efficiency",
-    "text": "Quantum computing likely to make probabilistic modelling more computationally efficient. Kehoe et al. (2021) propose a Bayesian approach to DL using quantum processors that promises to be more robust than conventional DNNs.\nUsing simple concentration inequalities Maxim Panov proposes a measure for total uncertainty of Deep Neural Networks (no numerical methods needed) – missing a paper references here."
-  },
-  {
-    "objectID": "literature.html#thoughts",
-    "href": "literature.html#thoughts",
-    "title": "Literature",
-    "section": "Thoughts",
-    "text": "Compare explainability in Bayesian setting (e.g. RATE (Ish-Horowicz et al. 2019)) to surrogate (and counterfactual) explainers? (ING models)\nLink to AFR track on quantum ML.\nLink to uncertainty quantification for Deep Vector Autoregression (Agusti, Altmeyer, and Vidal-Quadras Costa 2021)."
-  },
-  {
-    "objectID": "literature.html#background-1",
-    "href": "literature.html#background-1",
-    "title": "Literature",
-    "section": "Background",
-    "text": "There is an emerging view that that current efforts towards interpretability and robustness are fruitless and only an incorporation of causality can provide answers (Pearl and Mackenzie 2018).\nPearl (2019) argues that AI is current stuck at the association level: models are limited to learning \\(P(y|X)\\) (“glorified curve fitting”). Starting from causal graphical models (CGM) improves transparency and domain adaptability."
-  },
-  {
-    "objectID": "literature.html#structure-learning",
-    "href": "literature.html#structure-learning",
-    "title": "Literature",
-    "section": "Structure learning",
-    "text": "Zheng et al. (2018) proposes to cast the combinatorial problem of learning a CGM into a continuous problem that can be learned through standard non-convex constrained optimization for linear structural equation models (SEM).\nLachapelle et al. (2019) extend this idea to the non-linear case.\nBussmann, Nys, and Latré (2020) propose Neural Additive Vector Autoregression (NAVAR) for (Granger) causal discovery in time series setting. The model can be seen as a Generalised Additive Model and is therefore inherently (somewhat) interpretable. It is based on the assumption that contemporary dependencies between variables are linear, only dependencies through time require non-linear model."
-  },
-  {
-    "objectID": "literature.html#causal-ce",
-    "href": "literature.html#causal-ce",
-    "title": "Literature",
-    "section": "Link to CE and algorithmic recourse",
-    "text": "Joshi et al. (2019) make an interesting link between CGM and counterfactual explanations: they draw an analogy between hidden confounders in CGMs and the latent manifold which REVISE traverses to propose recourse. Run a single experiment on TWIN dataset and show that recommended recourse changes qualitatively as confounding is introduced.\nKarimi et al. (2020) develop two probabilistic approaches to algorithmic recourse in the case of limited causal knowledge.\n\nIn essence the probabilistic approach boils down to assuming a Gaussian Process prior for the causal mapping parent nodes to node \\(X\\). This yields a posterior noise distribution, which in turn can be used to draw from a counterfactual distribution.\n\nKarimi, Schölkopf, and Valera (2021) demonstrate how to go from counterfactuals to interventions in the case of complete knowledge of the CGM. Propose a shift of paradigm from recourse via counterfactuals to recourse through minimal interventions."
-  },
-  {
-    "objectID": "literature.html#thoughts-1",
-    "href": "literature.html#thoughts-1",
-    "title": "Literature",
-    "section": "Thoughts",
-    "text": "Can explore the link between CGM and CE further, perhaps in the context of Bayesian classifier (Schut et al. 2021).\n\nIn particular, it might be possible to draw an analogue between Schut et al. (2021) (low epistemic + aleatoric uncertainty) and the counterfactual distribution proposed by Karimi et al. (2020). Could further try to account for hidden confounders as in Joshi et al. (2019).\n\nKarimi, Schölkopf, and Valera (2021) can be solved through by building on existing frameworks for generating nearest counterfactual explanations - could try to apply Schut et al. (2021)?\nApplications at ING?\n\nApply to loan application decision system (if exists)\nApply to credit scoring (perhaps even Dutch government scandal)\n…"
-  },
-  {
-    "objectID": "literature.html#background-2",
-    "href": "literature.html#background-2",
-    "title": "Literature",
-    "section": "Background",
-    "text": "Szegedy et al. (2013) were the first to point out the existence of adversarial examples in the image classification domain.\nGoodfellow, Shlens, and Szegedy (2014) argue that the existence of adversarial examples can be explained solely by the locally-linear nature of artificial neural networks. They show how simple linear perturbation through their fast gradient sign method can consistently fool many state-of-the-art neural networks. Adversarial training can improve robustness to some extent, but DNNs are still highly confident with respect to misclassified labels.\nCarlini and Wagner (2017) show that an initially promising method for robustifying DNNs, namely defensive distillation, is in fact insufficient. They argue that their adversarial attacks should serve as a benchmark for evaluating the robustness of DNNs."
-  },
-  {
-    "objectID": "literature.html#thoughts-2",
-    "href": "literature.html#thoughts-2",
-    "title": "Literature",
-    "section": "Thoughts",
-    "text": "Link to anomaly detection (ING)\nOut-of-distribution detection for time series models (e.g. avoid Covid scenarios leading to model failures (Bholat, Gharbawi, and Thew 2020)).\nIf adversarial training affects the success of adversarial attacks, does it also affect success of CE?\nCan we penalize instability much like we penalize complexity in empirical risk minimization?"
-  },
-  {
-    "objectID": "literature.html#some-topics",
-    "href": "literature.html#some-topics",
-    "title": "Literature",
-    "section": "Some topics",
-    "text": "Time series modelling and forecasting: could extend our previous work (Agusti, Altmeyer, and Vidal-Quadras Costa 2021) and apply to ING context.\nFinancial Stability:\n\nAI robustness and the Covid crisis - negative impact of ML on model performance.\nPotential for herding behaviour if large share of market participants uses off-the-shelf ML tools (OECD 2021).\n\nMarket Microstructure:\n\nML model collusion hard to detect (OECD 2021).\nLack of explainability inhibits timely model adjustments (OECD 2021).\nIntentional lack of transparency for proprietary trading (OECD 2021).\n\nSupTech and RegTech:\n\nUsing AI to self-regulate in a transparent, trustworthy way (OECD 2021).\n\nIntent classification (Hadi): much like predicting a 3D shape from a 2D input, intent classification from natural language is an ill-posed problem that should be tackled using Bayesian inference (Murphy 2022).\nAnomaly detection for time series (Hadi): Bayesian DL for out-of-distribution detection."
-  },
-  {
-    "objectID": "literature.html#other-random-thoughts",
-    "href": "literature.html#other-random-thoughts",
-    "title": "Literature",
-    "section": "Other random thoughts",
-    "text": "Explainability in the context of (deep) reinforcement learning for RecSys.\nRegime-switching/structural break detection for non-stationary multi-armed bandits (RecSys).\nRecSys and lessons from behavioural sciences: default choices, menu sizes, goals.\nLink between GNN and DAG."
+    "section": "Robustness",
+    "text": "Background\n\nSzegedy et al. (2013) were the first to point out the existence of adversarial examples in the image classification domain.\nGoodfellow, Shlens, and Szegedy (2014) argue that the existence of adversarial examples can be explained solely by the locally-linear nature of artificial neural networks. They show how simple linear perturbation through their fast gradient sign method can consistently fool many state-of-the-art neural networks. Adversarial training can improve robustness to some extent, but DNNs are still highly confident with respect to misclassified labels.\nCarlini and Wagner (2017) show that an initially promising method for robustifying DNNs, namely defensive distillation, is in fact insufficient. They argue that their adversarial attacks should serve as a benchmark for evaluating the robustness of DNNs.\n\n\n\nThoughts\n\n\nLink to anomaly detection (ING)\nOut-of-distribution detection for time series models (e.g. avoid Covid scenarios leading to model failures (Bholat, Gharbawi, and Thew 2020)).\nIf adversarial training affects the success of adversarial attacks, does it also affect success of CE?\nCan we penalize instability much like we penalize complexity in empirical risk minimization?"
   }
 ]

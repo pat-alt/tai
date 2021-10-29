@@ -80,32 +80,31 @@
 <li><a href="#background" class="nav-link" data-scroll-target="#background">Background</a></li>
 <li><a href="#structure-learning" class="nav-link" data-scroll-target="#structure-learning">Structure learning</a></li>
 <li><a href="#causal-ce" class="nav-link" data-scroll-target="#causal-ce">Link to CE and algorithmic recourse</a></li>
-<li><a href="#thoughts" class="nav-link" data-scroll-target="#thoughts">Thoughts</a></li>
 </ul></li>
 </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/edit/main/private/causal_ai.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav></div>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-8 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
 <main>
 
-<section id="causal-ai" class="level1">
-<h1>Causal AI</h1>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
+<section id="causal-ai" class="level2">
+<h2 class="anchored" data-anchor-id="causal-ai">Causal AI</h2>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
 <ul>
 <li>There is an emerging view that that current efforts towards interpretability and robustness are fruitless and only an incorporation of causality can provide answers <span class="citation" data-cites="pearl2018book">[@pearl2018book]</span>.</li>
 <li><span class="citation" data-cites="pearl2019seven">@pearl2019seven</span> argues that AI is current stuck at the <em>association</em> level: models are limited to learning <span class="math inline">\(P(y|X)\)</span> (“glorified curve fitting”). Starting from causal graphical models (CGM) improves transparency and domain adaptability.</li>
 </ul>
 </section>
-<section id="structure-learning" class="level2">
-<h2 class="anchored" data-anchor-id="structure-learning">Structure learning</h2>
+<section id="structure-learning" class="level3">
+<h3 class="anchored" data-anchor-id="structure-learning">Structure learning</h3>
 <ul>
 <li><span class="citation" data-cites="zheng2018dags">@zheng2018dags</span> proposes to cast the combinatorial problem of learning a CGM into a continuous problem that can be learned through standard non-convex constrained optimization for linear structural equation models (SEM).</li>
 <li><span class="citation" data-cites="lachapelle2019gradient">@lachapelle2019gradient</span> extend this idea to the non-linear case.</li>
 <li><span class="citation" data-cites="bussmann2020neural">@bussmann2020neural</span> propose Neural Additive Vector Autoregression (NAVAR) for (Granger) causal discovery in time series setting. The model can be seen as a Generalised Additive Model and is therefore inherently (somewhat) interpretable. It is based on the assumption that contemporary dependencies between variables are linear, only dependencies through time require non-linear model.</li>
 </ul>
 </section>
-<section id="causal-ce" class="level2">
-<h2 class="anchored" data-anchor-id="causal-ce">Link to CE and algorithmic recourse</h2>
+<section id="causal-ce" class="level3">
+<h3 class="anchored" data-anchor-id="causal-ce">Link to CE and algorithmic recourse</h3>
 <ul>
 <li><span class="citation" data-cites="joshi2019towards">@joshi2019towards</span> make an interesting link between CGM and counterfactual explanations: they draw an analogy between hidden confounders in CGMs and the latent manifold which REVISE traverses to propose recourse. Run a single experiment on TWIN dataset and show that recommended recourse changes qualitatively as confounding is introduced.</li>
 <li><span class="citation" data-cites="karimi2020algorithmic">@karimi2020algorithmic</span> develop two probabilistic approaches to algorithmic recourse in the case of limited causal knowledge.
@@ -114,9 +113,7 @@
 </ul></li>
 <li><span class="citation" data-cites="karimi2021algorithmic">@karimi2021algorithmic</span> demonstrate how to go from counterfactuals to interventions in the case of complete knowledge of the CGM. Propose a shift of paradigm from <em>recourse via counterfactuals</em> to <em>recourse through minimal interventions</em>.</li>
 </ul>
-</section>
-<section id="thoughts" class="level2 thoughts">
-<h2 class="thoughts anchored" data-anchor-id="thoughts">Thoughts</h2>
+<div class="thoughts">
 <ul>
 <li>Can explore the link between CGM and CE further, perhaps in the context of Bayesian classifier <span class="citation" data-cites="schut2021generating">[@schut2021generating]</span>.
 <ul>
@@ -130,6 +127,7 @@
 <li>…</li>
 </ul></li>
 </ul>
+</div>
 
 
 </section>
@@ -217,7 +215,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /row -->
 <div class="row">
   <div class="nav-footer">
-      <div class="nav-footer-center me-auto ms-auto">Copyright 2021, Patrick Altmeyer</div>
+      <div class="nav-footer-center me-auto ms-auto">Copyright 2021, <a href="www.paltmeyer.com">Patrick Altmeyer</a></div>
   </div>
 </div>
 </div> <!-- /container fluid -->

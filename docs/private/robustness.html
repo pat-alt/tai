@@ -80,28 +80,30 @@
 <li><a href="#thoughts" class="nav-link" data-scroll-target="#thoughts">Thoughts</a></li>
 </ul></li>
 </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/edit/main/private/robustness.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav></div>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-8 col-xl-7 px-lg-4 pe-xxl-4 ps-xxl-0">
 <main>
 
-<section id="robustness" class="level1">
-<h1>Robustness</h1>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
+<section id="robustness" class="level2">
+<h2 class="anchored" data-anchor-id="robustness">Robustness</h2>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
 <ul>
 <li><span class="citation" data-cites="szegedy2013intriguing">@szegedy2013intriguing</span> were the first to point out the existence of adversarial examples in the image classification domain.</li>
 <li><span class="citation" data-cites="goodfellow2014explaining">@goodfellow2014explaining</span> argue that the existence of adversarial examples can be explained solely by the locally-linear nature of artificial neural networks. They show how simple linear perturbation through their <em>fast gradient sign method</em> can consistently fool many state-of-the-art neural networks. Adversarial training can improve robustness to some extent, but DNNs are still highly confident with respect to misclassified labels.</li>
 <li><span class="citation" data-cites="carlini2017towards">@carlini2017towards</span> show that an initially promising method for robustifying DNNs, namely <em>defensive distillation</em>, is in fact insufficient. They argue that their adversarial attacks should serve as a benchmark for evaluating the robustness of DNNs.</li>
 </ul>
 </section>
-<section id="thoughts" class="level2 thoughts">
-<h2 class="thoughts anchored" data-anchor-id="thoughts">Thoughts</h2>
+<section id="thoughts" class="level3 thoughts">
+<h3 class="thoughts anchored" data-anchor-id="thoughts">Thoughts</h3>
+<div class="thoughts">
 <ul>
 <li><strong>Link to anomaly detection (ING)</strong></li>
 <li><strong>Out-of-distribution detection for time series models (e.g.&nbsp;avoid Covid scenarios leading to model failures <span class="citation" data-cites="bholat2020impact">[@bholat2020impact]</span>)</strong>.</li>
 <li>If adversarial training affects the success of adversarial attacks, does it also affect success of CE?</li>
 <li>Can we penalize instability much like we penalize complexity in empirical risk minimization?</li>
 </ul>
+</div>
 
 
 </section>
@@ -189,7 +191,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /row -->
 <div class="row">
   <div class="nav-footer">
-      <div class="nav-footer-center me-auto ms-auto">Copyright 2021, Patrick Altmeyer</div>
+      <div class="nav-footer-center me-auto ms-auto">Copyright 2021, <a href="www.paltmeyer.com">Patrick Altmeyer</a></div>
   </div>
 </div>
 </div> <!-- /container fluid -->
