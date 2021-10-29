@@ -8,7 +8,7 @@ rm(list = ls())
 knitr::opts_chunk$set(echo = FALSE, fig.align = "center", out.width = 500)
 ```
 
-This is a collection of interesting papers and thoughts around Trustworthy AI that I have been gradually compiling during the early stages of my PhD. Descriptions of papers are very brief. If you'd like to have access to more detailed handwritten notes, please just drop me a [line](emailto: p.altmeyer@tudelft.nl). A list of all references linked here can be found at the bottom.
+This is a collection of interesting papers and thoughts around Trustworthy AI that I have been gradually compiling during the early stages of my PhD. Descriptions of papers are very brief. If you'd like to have access to more detailed handwritten notes, please just drop me a [line](mailto: p.altmeyer@tudelft.nl). A list of all references linked here can be found at the bottom.
 
 ```{r explainability, child="private/explainability.Rmd"}
 ```
