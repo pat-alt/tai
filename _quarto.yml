@@ -6,7 +6,7 @@ site:
   title: "Trustworthy AI"
   navbar:
     search: true
-    background: dark
+    background: primary
     foreground: success
     left:
       - href: index.qmd
