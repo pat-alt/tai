@@ -22,6 +22,9 @@ This is a collection of interesting papers and thoughts around Trustworthy AI th
 ```{r robustness, child="private/robustness.Rmd"}
 ```
 
+```{r applications, child="private/applications.Rmd"}
+```
+
 # References {-}
 
 <div id="refs"></div>
