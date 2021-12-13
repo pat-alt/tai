@@ -39,14 +39,14 @@
     "href": "private/proposal.html#methodological-challenges",
     "title": "Trustworthy Artificial Intelligence for FinTech",
     "section": "Methodological challenges",
-    "text": "Methodological challenges\nThe following is a non-exhaustive list of current methodological challenges and promising research avenues in AI that will play an important role in the context of its application to FinTech:\n\nChallenges\n\nExplainability\nTransparency\nRobustness\nDiscrimination and bias\n\n\n\nOpportunities\n\nCounterfactual Explanations and Algorithmic Recourse\nProbabilistic Machine Learning\nSurrogate Explainers\nCausal machine learning\nAdversarial Training"
+    "text": "Methodological challenges\nThe following is a non-exhaustive list of current methodological challenges and promising research avenues in AI that will play an important role in the context of its application to FinTech:\n\nChallenges\n\nExplainability\nRobustness\nDiscrimination and bias\nTransparency\n\n\n\nOpportunities\n\nCounterfactual Explanations and Algorithmic Recourse\nProbabilistic Machine Learning\nSurrogate Explainers\nCausal machine learning\nAdversarial Training"
   },
   {
     "objectID": "private/proposal.html#applications",
     "href": "private/proposal.html#applications",
     "title": "Trustworthy Artificial Intelligence for FinTech",
     "section": "Applications",
-    "text": "Applications\nThe following is a non-exhaustive list of current and potential future applications of AI in the financial sector as well as some of the associated risks:\n\nCredit and risk scoring\nTime series forecasting\nMarket microstructure\nSupTech and RegTech\nFinancial stability\nMonetary policy"
+    "text": "Applications\nThe following is a non-exhaustive list of current and potential future applications of AI in the financial sector as well as some of the associated risks:\n\nCredit and risk scoring\nMarket microstructure\nSupTech and RegTech\nFinancial stability\nMonetary policy\nTime series forecasting"
   },
   {
     "objectID": "private/proposal.html#algorithmic-recourse",
@@ -81,7 +81,7 @@
     "href": "private/applications.html#applications",
     "title": "Trustworthy AI",
     "section": "Applications",
-    "text": "Applications\n\nFinancial Stability:\n\nAI robustness and the Covid crisis - negative impact of ML on model performance.\nPotential for herding behaviour if large share of market participants uses off-the-shelf ML tools [@oecd2021artificial].\n\nMarket Microstructure:\n\nML model collusion hard to detect [@oecd2021artificial].\nLack of explainability inhibits timely model adjustments [@oecd2021artificial].\nIntentional lack of transparency for proprietary trading [@oecd2021artificial].\n\nSupTech and RegTech:\n\nUsing AI to self-regulate in a transparent, trustworthy way [@oecd2021artificial].\n\nMonetary policy:\n\nIn @altmeyer2021deep we show how to incorporate deep learning in the context of Vector Autoregression for macroeconomic data."
+    "text": "Applications\n\nCredit and risk scoring\n\nThe literature on algorithmic recourse commonly relates the methodology to the example of loan approval [e.g. @karimi2021algorithmic; @upadhyay2021towards]\n@kuiper2021exploring present a number of example use cases of AI in the context of consumer credit.\n\n\n\nFinancial Stability\n\nAI robustness and the Covid crisis - negative impact of ML on model performance [@bholat2020impact].\nPotential for herding behaviour if large share of market participants uses off-the-shelf ML tools [@oecd2021artificial].\n\n\n\nMarket Microstructure\n\nML model collusion hard to detect [@oecd2021artificial].\nLack of explainability inhibits timely model adjustments [@oecd2021artificial].\nIntentional lack of transparency for proprietary trading [@oecd2021artificial].\n\n\n\nSupTech and RegTech\n\nMarket participants may start using AI to self-regulate in a transparent, trustworthy way [@oecd2021artificial].\nSimalarly, financial regulators are already employing AI for the purpose of supervision.\n\n\n\nMonetary policy and forecasting\n\nIn @altmeyer2021deep we show how to incorporate deep learning in the context of Vector Autoregression for macroeconomic data."
   },
   {
     "objectID": "literature.html#explainability",
@@ -116,6 +116,6 @@
     "href": "literature.html#applications",
     "title": "Literature",
     "section": "Applications",
-    "text": "Applications\n\nFinancial Stability:\n\nAI robustness and the Covid crisis - negative impact of ML on model performance.\nPotential for herding behaviour if large share of market participants uses off-the-shelf ML tools (OECD 2021).\n\nMarket Microstructure:\n\nML model collusion hard to detect (OECD 2021).\nLack of explainability inhibits timely model adjustments (OECD 2021).\nIntentional lack of transparency for proprietary trading (OECD 2021).\n\nSupTech and RegTech:\n\nUsing AI to self-regulate in a transparent, trustworthy way (OECD 2021).\n\nMonetary policy:\n\nIn Altmeyer, Agusti, and Vidal-Quadras Costa (2021) we show how to incorporate deep learning in the context of Vector Autoregression for macroeconomic data."
+    "text": "Applications\n\nCredit and risk scoring\n\nThe literature on algorithmic recourse commonly relates the methodology to the example of loan approval (e.g. Karimi, Schölkopf, and Valera 2021; Upadhyay, Joshi, and Lakkaraju 2021)\nKuiper et al. (2021) present a number of example use cases of AI in the context of consumer credit.\n\n\n\nFinancial Stability\n\nAI robustness and the Covid crisis - negative impact of ML on model performance (Bholat, Gharbawi, and Thew 2020).\nPotential for herding behaviour if large share of market participants uses off-the-shelf ML tools (OECD 2021).\n\n\n\nMarket Microstructure\n\nML model collusion hard to detect (OECD 2021).\nLack of explainability inhibits timely model adjustments (OECD 2021).\nIntentional lack of transparency for proprietary trading (OECD 2021).\n\n\n\nSupTech and RegTech\n\nMarket participants may start using AI to self-regulate in a transparent, trustworthy way (OECD 2021).\nSimalarly, financial regulators are already employing AI for the purpose of supervision.\n\n\n\nMonetary policy and forecasting\n\nIn Altmeyer, Agusti, and Vidal-Quadras Costa (2021) we show how to incorporate deep learning in the context of Vector Autoregression for macroeconomic data."
   }
 ]

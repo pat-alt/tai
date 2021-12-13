@@ -130,7 +130,14 @@
 <li><a href="#background-2" class="nav-link" data-scroll-target="#background-2">Background</a></li>
 <li><a href="#thoughts" class="nav-link" data-scroll-target="#thoughts">Thoughts</a></li>
 </ul></li>
-<li><a href="#applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+<li><a href="#applications" class="nav-link" data-scroll-target="#applications">Applications</a>
+<ul class="collapse">
+<li><a href="#credit-and-risk-scoring" class="nav-link" data-scroll-target="#credit-and-risk-scoring">Credit and risk scoring</a></li>
+<li><a href="#financial-stability" class="nav-link" data-scroll-target="#financial-stability">Financial Stability</a></li>
+<li><a href="#market-microstructure" class="nav-link" data-scroll-target="#market-microstructure">Market Microstructure</a></li>
+<li><a href="#suptech-and-regtech" class="nav-link" data-scroll-target="#suptech-and-regtech">SupTech and RegTech</a></li>
+<li><a href="#monetary-policy-and-forecasting" class="nav-link" data-scroll-target="#monetary-policy-and-forecasting">Monetary policy and forecasting</a></li>
+</ul></li>
 <li><a href="#references" class="nav-link" data-scroll-target="#references">References</a></li>
 </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pat-alt/tai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -307,27 +314,41 @@
 </section>
 <section id="applications" class="level2">
 <h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<section id="credit-and-risk-scoring" class="level3">
+<h3 class="anchored" data-anchor-id="credit-and-risk-scoring">Credit and risk scoring</h3>
 <ul>
-<li><strong>Financial Stability</strong>:
+<li>The literature on algorithmic recourse commonly relates the methodology to the example of loan approval <span class="citation" data-cites="karimi2021algorithmic upadhyay2021towards">(e.g. <a href="#ref-karimi2021algorithmic" role="doc-biblioref">Karimi, Schölkopf, and Valera 2021</a>; <a href="#ref-upadhyay2021towards" role="doc-biblioref">Upadhyay, Joshi, and Lakkaraju 2021</a>)</span></li>
+<li><span class="citation" data-cites="kuiper2021exploring">Kuiper et al. (<a href="#ref-kuiper2021exploring" role="doc-biblioref">2021</a>)</span> present a number of example use cases of AI in the context of consumer credit.</li>
+</ul>
+</section>
+<section id="financial-stability" class="level3">
+<h3 class="anchored" data-anchor-id="financial-stability">Financial Stability</h3>
 <ul>
-<li>AI robustness and the Covid crisis - negative impact of ML on model performance.</li>
+<li>AI robustness and the Covid crisis - negative impact of ML on model performance <span class="citation" data-cites="bholat2020impact">(<a href="#ref-bholat2020impact" role="doc-biblioref">Bholat, Gharbawi, and Thew 2020</a>)</span>.</li>
 <li>Potential for herding behaviour if large share of market participants uses off-the-shelf ML tools <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
-</ul></li>
-<li><strong>Market Microstructure</strong>:
+</ul>
+</section>
+<section id="market-microstructure" class="level3">
+<h3 class="anchored" data-anchor-id="market-microstructure">Market Microstructure</h3>
 <ul>
 <li>ML model collusion hard to detect <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
 <li>Lack of explainability inhibits timely model adjustments <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
 <li>Intentional lack of transparency for proprietary trading <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
-</ul></li>
-<li><strong>SupTech and RegTech</strong>:
+</ul>
+</section>
+<section id="suptech-and-regtech" class="level3">
+<h3 class="anchored" data-anchor-id="suptech-and-regtech">SupTech and RegTech</h3>
 <ul>
-<li>Using AI to self-regulate in a transparent, trustworthy way <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
-</ul></li>
-<li><strong>Monetary policy</strong>:
+<li>Market participants may start using AI to self-regulate in a transparent, trustworthy way <span class="citation" data-cites="oecd2021artificial">(<a href="#ref-oecd2021artificial" role="doc-biblioref">OECD 2021</a>)</span>.</li>
+<li>Simalarly, financial regulators are already employing AI for the purpose of supervision.</li>
+</ul>
+</section>
+<section id="monetary-policy-and-forecasting" class="level3">
+<h3 class="anchored" data-anchor-id="monetary-policy-and-forecasting">Monetary policy and forecasting</h3>
 <ul>
 <li>In <span class="citation" data-cites="altmeyer2021deep">Altmeyer, Agusti, and Vidal-Quadras Costa (<a href="#ref-altmeyer2021deep" role="doc-biblioref">2021</a>)</span> we show how to incorporate deep learning in the context of Vector Autoregression for macroeconomic data.</li>
-</ul></li>
 </ul>
+</section>
 </section>
 <section id="references" class="level1 unnumbered">
 <h1 class="unnumbered">References</h1>
@@ -377,6 +398,9 @@ Kilian, Lutz, and Helmut Lütkepohl. 2017. <em>Structural Vector Autoregressive 
 <div id="ref-kirsch2019batchbald" class="csl-entry" role="doc-biblioentry">
 Kirsch, Andreas, Joost Van Amersfoort, and Yarin Gal. 2019. <span>“Batchbald: Efficient and Diverse Batch Acquisition for Deep Bayesian Active Learning.”</span> <em>Advances in Neural Information Processing Systems</em> 32: 7026–37.
 </div>
+<div id="ref-kuiper2021exploring" class="csl-entry" role="doc-biblioentry">
+Kuiper, Ouren, Martin van den Berg, Joost van den Burgt, and Stefan Leijnen. 2021. <span>“Exploring Explainable AI in the Financial Sector: Perspectives of Banks and Supervisory Authorities.”</span> <em>arXiv Preprint arXiv:2111.02244</em>.
+</div>
 <div id="ref-lachapelle2019gradient" class="csl-entry" role="doc-biblioentry">
 Lachapelle, Sébastien, Philippe Brouillard, Tristan Deleu, and Simon Lacoste-Julien. 2019. <span>“Gradient-Based Neural Dag Learning.”</span> <em>arXiv Preprint arXiv:1906.02226</em>.
 </div>
@@ -418,6 +442,9 @@ Slack, Dylan, Sophie Hilgard, Emily Jia, Sameer Singh, and Himabindu Lakkaraju. 
 </div>
 <div id="ref-szegedy2013intriguing" class="csl-entry" role="doc-biblioentry">
 Szegedy, Christian, Wojciech Zaremba, Ilya Sutskever, Joan Bruna, Dumitru Erhan, Ian Goodfellow, and Rob Fergus. 2013. <span>“Intriguing Properties of Neural Networks.”</span> <em>arXiv Preprint arXiv:1312.6199</em>.
+</div>
+<div id="ref-upadhyay2021towards" class="csl-entry" role="doc-biblioentry">
+Upadhyay, Sohini, Shalmali Joshi, and Himabindu Lakkaraju. 2021. <span>“Towards Robust and Reliable Algorithmic Recourse.”</span> <em>arXiv Preprint arXiv:2102.13620</em>.
 </div>
 <div id="ref-ustun2019actionable" class="csl-entry" role="doc-biblioentry">
 Ustun, Berk, Alexander Spangher, and Yang Liu. 2019. <span>“Actionable Recourse in Linear Classification.”</span> In <em>Proceedings of the Conference on Fairness, Accountability, and Transparency</em>, 10–19.
